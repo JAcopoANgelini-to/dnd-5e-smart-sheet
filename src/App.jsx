@@ -18,7 +18,13 @@ function App() {
   const [modifiers, setModifiers] = useState({});
 
   const handleModifierTableChange = (key, value) => {
-    setModifiers(prev => ({ ...prev, [key]: value }));
+    setModifiers(prev => ({
+      ...prev,
+      [key]: {
+        ...prev[key],
+        value: value
+      }
+    }));
 
     const updateOrAddModifier = (modifiers = []) => {
       const existing = modifiers.find(mod => mod.key === key);
@@ -33,11 +39,17 @@ function App() {
 
     if (combatAction.length > 0) {
       setcombatAction(prev =>
-        prev.map(action => ({
-          ...action,
-          selectedDamageModifiers: updateOrAddModifier(action.selectedDamageModifiers),
-          selectedHitModifiers: updateOrAddModifier(action.selectedHitModifiers),
-        }))
+        prev.map(action => {
+          // Filtra gli slot prima di aggiornare
+          const shouldUpdateHit = action.selectedHitModifiers.some(mod => mod.key === key) && !modifiers[key]?.isASlot;
+          const shouldUpdateDamage = action.selectedDamageModifiers.some(mod => mod.key === key) && !modifiers[key]?.isASlot;
+
+          return {
+            ...action,
+            selectedDamageModifiers: shouldUpdateDamage ? updateOrAddModifier(action.selectedDamageModifiers) : action.selectedDamageModifiers,
+            selectedHitModifiers: shouldUpdateHit ? updateOrAddModifier(action.selectedHitModifiers) : action.selectedHitModifiers,
+          }
+        })
       );
     }
   };
@@ -45,10 +57,18 @@ function App() {
 
   const handleAdd = () => {
     const newKey = prompt('Inserisci nuova chiave:');
+    if (!newKey) return;
+
     const newValue = prompt('Inserisci valore per la chiave "' + newKey + '":');
-    if (newKey) {
-      setModifiers((prev) => ({ ...prev, [newKey]: newValue }));
-    }
+    const isASlot = confirm('È uno slot incantesimo?'); // Chiedi all'utente
+
+    setModifiers((prev) => ({
+      ...prev,
+      [newKey]: {
+        value: newValue,
+        isASlot: isASlot
+      }
+    }));
   };
 
   const handleDelete = (keyToDelete) => {
@@ -57,6 +77,16 @@ function App() {
       delete updated[keyToDelete];
       return updated;
     });
+  };
+
+  const handleSlotToggle = (key) => {
+    setModifiers(prev => ({
+      ...prev,
+      [key]: {
+        ...prev[key],
+        isASlot: !prev[key]?.isASlot
+      }
+    }));
   };
 
 
@@ -85,10 +115,16 @@ function App() {
   };
 
   const handleSelectChangeHit = (index, newKey) => {
+    // Se il modificatore selezionato è uno slot, non aggiungerlo
+    if (modifiers[newKey]?.isASlot) {
+      alert("Non puoi selezionare uno slot incantesimo come modificatore!");
+      return;
+    }
+
     const updated = [...selectedHitModifiers];
     updated[index] = {
       key: newKey,
-      value: modifiers[newKey] || ""
+      value: modifiers[newKey]?.value || ""
     };
     setSelectedHitModifiers(updated);
   };
@@ -106,10 +142,16 @@ function App() {
   };
 
   const handleSelectChangeDamage = (index, newKey) => {
+    // Se il modificatore selezionato è uno slot, non aggiungerlo
+    if (modifiers[newKey]?.isASlot) {
+      alert("Non puoi selezionare uno slot incantesimo come modificatore!");
+      return;
+    }
+
     const updated = [...selectedDamageModifiers];
     updated[index] = {
       key: newKey,
-      value: modifiers[newKey] || ""
+      value: modifiers[newKey]?.value || ""
     };
     setSelectedDamageModifiers(updated);
   };
@@ -144,13 +186,23 @@ function App() {
   const [combatAction, setcombatAction] = useState([]); // <- dove accumulerai gli oggetti
 
   const handleAddData = () => {
+    // Filtra gli slot dai modificatori di colpo e danno
+    const filteredHitModifiers = selectedHitModifiers
+      .filter(mod => !modifiers[mod.key]?.isASlot)
+      .map(mod => ({ ...mod }));
+
+    const filteredDamageModifiers = selectedDamageModifiers
+      .filter(mod => !modifiers[mod.key]?.isASlot)
+      .map(mod => ({ ...mod }));
+
     const newCombatAction = {
       anagrafic: { ...anagrafic },
-      selectedHitModifiers: selectedHitModifiers.map(mod => ({ ...mod })),
-      selectedDamageModifiers: selectedDamageModifiers.map(mod => ({ ...mod })),
+      selectedHitModifiers: filteredHitModifiers,
+      selectedDamageModifiers: filteredDamageModifiers,
       selecteDices: selecteDices.map(dice => ({ ...dice })),
       isSpell,
-      extraDiceLevelThreshold: Number(extraDiceLevelThreshold) || 0, // conversione qui
+      extraDiceLevelThreshold: Number(extraDiceLevelThreshold) || 0,
+      spellSlotLevel: Number(extraDiceLevelThreshold) || 0
     };
 
     setcombatAction(prev => [...prev, newCombatAction]);
@@ -183,28 +235,47 @@ function App() {
     const actionToModify = combatAction[index];
 
     setanAnagrafic({ ...actionToModify.anagrafic });
-    setSelectedDamageModifiers(actionToModify.selectedDamageModifiers.map(mod => ({ ...mod })));
-    setSelecteDices(actionToModify.selecteDices.map(dice => ({ ...dice })));
-    setSelectedHitModifiers(actionToModify.selectedHitModifiers.map(mod => ({ ...mod })));
 
-    // Aggiorna anche i due nuovi stati
+    // Filtra gli slot quando carichi i modificatori per la modifica
+    setSelectedDamageModifiers(
+      actionToModify.selectedDamageModifiers
+        .filter(mod => !modifiers[mod.key]?.isASlot)
+        .map(mod => ({ ...mod }))
+    );
+
+    setSelecteDices(actionToModify.selecteDices.map(dice => ({ ...dice })));
+
+    setSelectedHitModifiers(
+      actionToModify.selectedHitModifiers
+        .filter(mod => !modifiers[mod.key]?.isASlot)
+        .map(mod => ({ ...mod }))
+    );
+
     setIsSpell(actionToModify.isSpell || false);
     setExtraDiceLevelThreshold(actionToModify.extraDiceLevelThreshold || 0);
-
-    setEditIndex(index); // salva solo l'indice
+    setEditIndex(index);
   };
 
 
 
 
   const modifyCombatAction = (index) => {
+    // Filtra gli slot dai modificatori di colpo e danno
+    const filteredHitModifiers = selectedHitModifiers
+      .filter(mod => !modifiers[mod.key]?.isASlot)
+      .map(mod => ({ ...mod }));
+
+    const filteredDamageModifiers = selectedDamageModifiers
+      .filter(mod => !modifiers[mod.key]?.isASlot)
+      .map(mod => ({ ...mod }));
+
     const modifiedCombatAction = {
       anagrafic: { ...anagrafic },
-      selectedHitModifiers: selectedHitModifiers.map(mod => ({ ...mod })),
-      selectedDamageModifiers: selectedDamageModifiers.map(mod => ({ ...mod })),
+      selectedHitModifiers: filteredHitModifiers,
+      selectedDamageModifiers: filteredDamageModifiers,
       selecteDices: selecteDices.map(dice => ({ ...dice })),
-      isSpell: isSpell,  // <-- nuovo campo
-      extraDiceLevelThreshold: extraDiceLevelThreshold,  // <-- nuovo campo
+      isSpell: isSpell,
+      extraDiceLevelThreshold: extraDiceLevelThreshold,
     };
 
     setcombatAction(prev =>
@@ -235,30 +306,60 @@ function App() {
 
 
   const rollToHit = (action, index) => {
-    const rollResult = roll1d20()
+    // Se è un incantesimo, riduci gli slot del livello appropriato
+    if (action.isSpell && action.spellSlotLevel) {
+      const slotKey = `slot_lv_${action.spellSlotLevel}`;
+
+      // Verifica se esiste lo slot nel modificatore e se è contrassegnato come slot
+      if (modifiers[slotKey] !== undefined && modifiers[slotKey].isASlot) {
+        const currentSlots = parseInt(modifiers[slotKey].value, 10);
+
+        // Se ci sono slot disponibili, riduci di 1
+        if (currentSlots > 0) {
+          const newSlots = currentSlots - 1;
+          handleModifierTableChange(slotKey, newSlots.toString());
+        } else {
+          alert(`Non hai più slot di livello ${action.spellSlotLevel} disponibili!`);
+          return; // Interrompe l'esecuzione se non ci sono slot
+        }
+      } else {
+        alert(`Slot di livello ${action.spellSlotLevel} non trovati nei modificatori!`);
+        return; // Interrompe l'esecuzione se lo slot non esiste
+      }
+    }
+
+    // Prosegui con il tiro normale, escludendo gli slot incantesimo dai modificatori
+    const rollResult = roll1d20();
     const modifierSum = action.selectedHitModifiers.reduce((acc, mod) => {
+      // Escludi i modificatori che sono slot incantesimo
+      if (modifiers[mod.key]?.isASlot) return acc;
+
       const value = parseInt(mod.value, 10);
       return acc + (isNaN(value) ? 0 : value);
     }, 0);
-    const result = rollResult + modifierSum
+
+    const result = rollResult + modifierSum;
 
     document.querySelector('.roll-result' + index).innerHTML = `
-      <p>
-        risultato tiro : ${rollResult}
-      </p>
+    <p>
+      risultato tiro : ${rollResult}
+    </p>
+    <br />
+    <p>
+      totale : ${result}
       <br />
-      <p>
-        totale : ${result}
-        <br />
-        (${rollResult} + ${modifierSum})
-      </p>
-    `
-  }
+      (${rollResult} + ${modifierSum})
+    </p>
+  `;
+  };
 
 
 
   const rollToDamage = (action, index) => {
     const modifierSum = action.selectedDamageModifiers.reduce((acc, mod) => {
+      // Escludi i modificatori che sono slot incantesimo
+      if (modifiers[mod.key]?.isASlot) return acc;
+
       const value = parseInt(mod.value, 10);
       return acc + (isNaN(value) ? 0 : value);
     }, 0);
@@ -479,7 +580,7 @@ function App() {
               accept=".json"
               onChange={() => acceptJson()}
             />
-            
+
           </div>
 
         </div>
@@ -552,9 +653,11 @@ function App() {
                         onChange={(e) => handleSelectChangeHit(index, e.target.value)}
                       >
                         <option value="">-- Seleziona un modificatore --</option>
-                        {Object.entries(modifiers).map(([key]) => (
-                          <option key={key} value={key}>{key}</option>
-                        ))}
+                        {Object.entries(modifiers)
+                          .filter(([key, modifier]) => !modifier.isASlot) // Escludi gli slot
+                          .map(([key]) => (
+                            <option key={key} value={key}>{key}</option>
+                          ))}
                       </select>
                     </td>
                     <td>{mod.value}</td>
@@ -590,9 +693,11 @@ function App() {
                         onChange={(e) => handleSelectChangeDamage(index, e.target.value)}
                       >
                         <option value="">-- Seleziona un modificatore --</option>
-                        {Object.entries(modifiers).map(([key]) => (
-                          <option key={key} value={key}>{key}</option>
-                        ))}
+                        {Object.entries(modifiers)
+                          .filter(([key, modifier]) => !modifier.isASlot) // Escludi gli slot
+                          .map(([key]) => (
+                            <option key={key} value={key}>{key}</option>
+                          ))}
                       </select>
                     </td>
                     <td>{mod.value}</td>
@@ -700,17 +805,26 @@ function App() {
                 <tr>
                   <th>Chiave</th>
                   <th>Valore</th>
+                  <th>È uno slot incantesimo?</th>
+                  <th>Azioni</th>
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(modifiers).map(([key, value]) => (
+                {Object.entries(modifiers).map(([key, modifier]) => (
                   <tr key={key}>
                     <td>{key}</td>
                     <td>
                       <input
                         type="text"
-                        value={value}
+                        value={modifier.value}
                         onChange={(e) => handleModifierTableChange(key, e.target.value)}
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="checkbox"
+                        checked={modifier.isASlot || false}
+                        onChange={() => handleSlotToggle(key)}
                       />
                     </td>
                     <td>
@@ -731,6 +845,7 @@ function App() {
 
 
         </div>
+
 
       </div>
     </>
