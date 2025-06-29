@@ -345,6 +345,7 @@ function App() {
         jsonDataUpload = JSON.parse(e.target.result);
         setcombatAction(jsonDataUpload[0])
         setModifiers(jsonDataUpload[1])
+        setRows(jsonDataUpload[2])
       } catch (err) {
         console.error("Errore nel parsing del JSON:", err);
       }
@@ -354,6 +355,66 @@ function App() {
 
   const [isSpell, setIsSpell] = useState(false);
   const [extraDiceLevelThreshold, setExtraDiceLevelThreshold] = useState(0);
+
+  const [rows, setRows] = useState([
+    { nome: '', espressione: '', valore: '' }
+  ]);
+
+  const handleAddExpression = () => {
+    setRows([...rows, { nome: '', espressione: '', valore: '' }]);
+  };
+
+  const handleDeleteCustomExpression = (indexToDelete) => {
+    setRows(rows.filter((_, index) => index !== indexToDelete));
+  };
+
+  const rollDice = (num, sides) => {
+    let total = 0;
+    for (let i = 0; i < num; i++) {
+      total += Math.floor(Math.random() * sides) + 1;
+    }
+    return total;
+  };
+
+
+  const preprocessExpression = (expr) => {
+    if (!expr) return expr;
+
+    // Sostituisci tutte le occorrenze di xdy
+    expr = expr.replace(/(\d+)d(\d+)/g, (_, num, sides) => {
+      return rollDice(Number(num), Number(sides));
+    });
+
+    // Sostituisci tutte le occorrenze di chiavi modifiers con Number(modifiers.chiave)
+    const keys = Object.keys(modifiers);
+    keys.forEach((key) => {
+      const regex = new RegExp(`\\b${key}\\b`, 'g');
+      expr = expr.replace(regex, `Number(modifiers.${key})`);
+    });
+
+    return expr;
+  };
+
+  const handleRollDice = (indexToRoll) => {
+    const newRows = [...rows];
+    const rawExpr = newRows[indexToRoll].espressione;
+
+    // Usiamo preprocessExpression per rilanciare i dadi e sostituire modifiers
+    const expr = preprocessExpression(rawExpr);
+
+    try {
+      // eslint-disable-next-line no-eval
+      const result = eval(expr);
+      newRows[indexToRoll].valore = result !== undefined ? String(result) : '';
+    } catch {
+      newRows[indexToRoll].valore = 'espressione non valida';
+    }
+
+    setRows(newRows);
+  };
+
+
+
 
   return (
     <>
@@ -467,7 +528,7 @@ function App() {
 
             </table>
 
-            <button onClick={() => objToJsonDownload([combatAction, modifiers])}>
+            <button onClick={() => objToJsonDownload([combatAction, modifiers, rows])}>
               Scarica json combat action e modificatori
             </button>
             <button id="uploadBtn" onClick={() => uploadJson()}>
@@ -479,7 +540,7 @@ function App() {
               accept=".json"
               onChange={() => acceptJson()}
             />
-            
+
           </div>
 
         </div>
@@ -729,6 +790,83 @@ function App() {
 
 
 
+
+        </div>
+
+        <div className='page-item' style={pageItemStyle}>
+          <h2>Custom Expressions: </h2>
+          <table border="1" cellPadding="8">
+            <thead>
+              <tr>
+                <th>Nome</th>
+                <th>Espressione</th>
+                <th>Valore</th>
+                <th>Azioni</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, index) => (
+                <tr key={index}>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Nome"
+                      value={row.nome}
+                      onChange={(e) => {
+                        const newRows = [...rows];
+                        newRows[index].nome = e.target.value;
+                        setRows(newRows);
+                      }}
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      placeholder="Espressione"
+                      value={row.espressione}
+                      onChange={(e) => {
+                        const newRows = [...rows];
+                        const rawExpr = e.target.value;
+                        newRows[index].espressione = rawExpr;
+
+                        // Preprocessa la stringa (per ora non fa nulla)
+                        const expr = preprocessExpression(rawExpr);
+
+                        try {
+                          // eslint-disable-next-line no-eval
+                          const result = eval(expr);
+
+                          newRows[index].valore = result !== undefined ? String(result) : '';
+                        } catch {
+                          newRows[index].valore = 'espressione non valida';
+                        }
+
+                        setRows(newRows);
+                        console.log(newRows);
+                      }}
+                    />
+                  </td>
+
+                  <td>{row.valore}</td>
+                  <td>
+                    <button
+                      onClick={() => handleRollDice(index)}
+                      style={{ marginBottom: '4px', display: 'block' }}
+                      title="Rilancia i dadi"
+                    >
+                      🎲
+                    </button>
+                    <button onClick={() => handleDeleteCustomExpression(index)}>🗑️</button>
+                  </td>
+
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <button onClick={handleAddExpression} style={{ marginTop: '10px' }}>
+            Aggiungi nuova chiave
+          </button>
 
         </div>
 
