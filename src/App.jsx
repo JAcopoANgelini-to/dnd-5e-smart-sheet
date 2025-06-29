@@ -18,6 +18,7 @@ function App() {
   const [modifiers, setModifiers] = useState({});
 
   const handleModifierTableChange = (key, value) => {
+    console.log(modifiers)
     setModifiers(prev => ({
       ...prev,
       [key]: {
@@ -490,7 +491,7 @@ function App() {
     const keys = Object.keys(modifiers);
     keys.forEach((key) => {
       const regex = new RegExp(`\\b${key}\\b`, 'g');
-      expr = expr.replace(regex, `Number(modifiers.${key})`);
+      expr = expr.replace(regex, `Number(modifiers.${key}.value)`);
     });
 
     return expr;
