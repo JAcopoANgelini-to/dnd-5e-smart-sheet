@@ -204,7 +204,7 @@ const Character = () => {
   // Converti le stats in modificatori nel formato atteso da Azioni
   const getModificatoriEsterni = () => {
     return characterData.stats
-      .filter(stat => stat.nome && stat.risultato !== undefined)
+      .filter(stat => stat.nome && stat.risultato && stat.risultato !== undefined)
       .map(stat => ({
         nome: stat.nome,
         risultato: stat.risultato.totale
