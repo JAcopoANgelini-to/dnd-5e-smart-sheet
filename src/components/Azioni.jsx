@@ -116,7 +116,8 @@ const Azioni = ({
             valore: azione.costo.slotIncantesimoOption.toString()
           }]
           : [])
-      ].filter(m => m.nome && m.valore);
+      ].filter(m => m.nome && m.valore!==undefined);
+
 
       // 5. Esecuzione tiro
       const risultato = valutaConEspressione(modificatori, tiro.espressione);
