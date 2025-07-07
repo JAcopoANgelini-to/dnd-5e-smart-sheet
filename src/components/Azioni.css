@@ -1,0 +1,275 @@
+/* Stili base del componente */
+.azioni {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-wrap: break-word;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #000;
+  background: transparent;
+}
+
+/* Stili per la tabella principale */
+.azioni > table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.azioni > table thead th {
+  background-color: #f0f0f0;
+  padding: 8px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.azioni > table tbody td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  vertical-align: top;
+}
+
+/* Riadattamento larghezze colonne tabella principale */
+.azioni > table thead th:nth-child(1) { /* Anagrafica */
+  width: 18%;
+}
+
+.azioni > table thead th:nth-child(2) { /* Costo */
+  width: 13%;
+}
+
+.azioni > table thead th:nth-child(3) { /* Tiri */
+  width: 47%;
+}
+
+.azioni > table thead th:nth-child(4) { /* Nuova colonna Dettaglio */
+  width: 15%;
+}
+
+.azioni > table thead th:nth-child(5) { /* Risultato */
+  width: 5%;
+}
+
+.azioni > table thead th:nth-child(6) { /* Azioni */
+  width: 5%;
+}
+
+/* Stili per le tabelle innestate */
+.azioni table table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.azioni table table td {
+  padding: 4px;
+  border: 1px solid #eee;
+}
+
+/* Tabella Anagrafica (prima colonna) */
+.azioni .tabella-anagrafica {
+  width: 100%;
+}
+
+.azioni .tabella-anagrafica td:first-child {
+  width: 50%;
+  font-weight: bold;
+}
+
+.azioni .tabella-anagrafica textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 20px;
+}
+
+/* Tabella Costo (seconda colonna) */
+.azioni .tabella-costo {
+  width: 100%;
+}
+
+.azioni .tabella-costo td:first-child {
+  width: 70%;
+}
+
+.azioni .tabella-costo td:last-child {
+  text-align: right;
+  width: 30%;
+}
+
+/* Tabella Tiri (terza colonna) */
+.azioni .tabella-tiri {
+  width: 100%;
+}
+
+.azioni .tabella-tiri th {
+  background-color: #f8f8f8;
+  padding: 4px;
+}
+
+/* Larghezza colonne tabella tiri innestata */
+.azioni .tabella-tiri thead th:nth-child(1) { /* Nome */
+  width: 15%;
+}
+
+.azioni .tabella-tiri thead th:nth-child(2) { /* Modificatori */
+  width: 40%;
+}
+
+.azioni .tabella-tiri thead th:nth-child(3) { /* Espressione */
+  width: 27%;
+}
+
+.azioni .tabella-tiri thead th:nth-child(4) { /* Azioni */
+  width: 18%;
+}
+
+.azioni .tabella-tiri textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 40px;
+}
+
+/* Stili per i modificatori locali */
+.azioni .tabella-modificatori {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.azioni .tabella-modificatori th {
+  background-color: #fafafa;
+  padding: 2px;
+  font-size: 0.9rem;
+}
+
+/* Larghezza colonne tabella modificatori */
+.azioni .tabella-modificatori thead th:nth-child(1) { /* Nome */
+  width: 35%;
+}
+
+.azioni .tabella-modificatori thead th:nth-child(2) { /* Valore */
+  width: 45%;
+}
+
+.azioni .tabella-modificatori thead th:nth-child(3) { /* Azioni */
+  width: 30%;
+}
+
+/* Stile per la colonna dettaglio */
+.azioni .col-dettaglio {
+  background-color: #f9f9f9;
+}
+
+.dettagli-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.dettaglio-tiro textarea {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 60px;
+  padding: 4px;
+  border: 1px solid #e0e0e0;
+  border-radius: 3px;
+  font-size: 0.9rem;
+}
+
+/* Stile per la colonna risultato */
+.azioni .col-risultato {
+  background-color: #f9f9f9;
+}
+
+.risultati-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.risultato-tiro {
+  padding: 6px;
+  background-color: #e8f4f8;
+  border-radius: 4px;
+  text-align: center;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+  border: 1px solid #d6e9f1;
+}
+
+/* Stile per lo stack dado-elimina */
+.dado-elimina-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .azioni > table {
+    display: block;
+  }
+  
+  .azioni > table thead {
+    display: none;
+  }
+  
+  .azioni > table tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+  }
+  
+  .azioni > table tbody td {
+    display: block;
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+  
+  .azioni > table tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+  }
+
+  .dettaglio-tiro textarea {
+    min-height: 50px;
+  }
+
+  .risultato-tiro {
+    min-height: 30px;
+    font-size: 1rem;
+  }
+}
+
+.dettaglio-tiro {
+  padding: 6px;
+  background-color: #f8f8f8;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.risultato-tiro {
+  /* Mantieni gli stili esistenti */
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+

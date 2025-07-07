@@ -1,7 +1,79 @@
-button{
-    margin-top: 8px
+button {
+  background-color: white;
+  color: #333;
+  /* grigio scuro per il testo */
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.page-item {
-    padding: 8px
+button:hover {
+  background-color: #f0f0f0;
+  /* leggero grigio al passaggio */
+  border-color: #999;
+}
+
+button:active {
+  background-color: #e0e0e0;
+  /* grigio un po' più scuro allo stato attivo */
+  border-color: #666;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+
+  /* Per far sì che il contenuto si allarghi */
+  white-space: nowrap;
+  /* evita il wrapping del testo */
+  overflow: hidden;
+  /* nasconde il testo che eccede la cella */
+  text-overflow: ellipsis;
+  /* mostra "..." se il testo è troppo lungo */
+  width: 100%;
+  /* riempie tutta la larghezza della cella */
+}
+
+table textarea {
+  width: 100%;
+  box-sizing: border-box;
+  height: 80px; /* o qualsiasi altezza vuoi, es. 80px */
+  resize: vertical; /* opzionale: permette all’utente di ridimensionare solo verticalmente */
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: nowrap; /* niente wrapping, tutto in orizzontale */
+  overflow-x: auto;  /* scroll orizzontale se necessario */
+  width: 100vw;      /* larghezza viewport */
+  box-sizing: border-box;
+  gap: 20px;         /* spazio tra i due contenitori */
+  padding-bottom: 10px;
+}
+
+.flex-child {
+  flex: 0 0 100vw;  /* larghezza fissa: 100% viewport */
+  box-sizing: border-box;
 }
