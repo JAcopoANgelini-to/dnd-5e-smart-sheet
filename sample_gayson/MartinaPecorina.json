@@ -1,0 +1,649 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "title": "Nome",
+      "notes": "MartinaPecorina",
+      "collapsed": true
+    },
+    {
+      "id": 2,
+      "title": "Competenze",
+      "notes": "Armatura: armatura leggera, armatura media, scudi\nArmi: armi semplici\nStrumenti: Nessuno\nTiri salvezza: Saggezza, Carisma\nAbilità: Medicina, Intuizione\nCompetenza con le armature pesanti.",
+      "collapsed": true
+    },
+    {
+      "id": 3,
+      "title": "Privilegi",
+      "notes": "Incantesimi,Dominio Divino",
+      "collapsed": true
+    },
+    {
+      "id": 6,
+      "title": "Funzionamento Incantesimi",
+      "notes": "Il chierico prepara la lista degli incantesimi da chierico disponibili da lanciare scegliendoli dalla lista degli incantesimi da chierico. Quando lo fa, deve scegliere un numero di incantesimi da chierico pari al suo modificatore di Saggezza + il suo livello da chierico (fino a un minimo di un incantesimo). Gli incantesimi devono essere di un livello di cui il chierico possiede degli slot incantesimo.\n\n(ora è 4)",
+      "collapsed": true
+    },
+    {
+      "id": 4,
+      "title": "Trucchetti Conosciuti",
+      "notes": "3",
+      "collapsed": true
+    },
+    {
+      "id": 7,
+      "title": "Discepolo della Vita",
+      "notes": "Inoltre, a partire dal 1° livello, i tuoi incantesimi di guarigione sono più efficaci. Ogni volta che lanci un incantesimo \ndi 1° livello o più alto per ripristinare punti ferita a una creatura, questa recupera ulteriori punti ferita uguali a 2 + \nil livello dell’incantesimo.",
+      "collapsed": true
+    },
+    {
+      "id": 5,
+      "title": "Slot Incantesimo per Livello di Incantesimo",
+      "notes": "1°\t2\n2°\t\n3°\t\n4°\t\n5°\t\n6°\t\n7°\t\n8°\t\n9°",
+      "collapsed": true
+    },
+    {
+      "id": 8,
+      "title": "Salvare i Morenti (PREPARATO) (Spare the Dying)",
+      "notes": "Trucchetto di Necromanzia\nTempo di Lancio: 1 azione\nGittata: Contatto\nComponenti: V, S\nDurata: Istantanea\n\nL'incantatore tocca una creatura vivente a 0 punti ferita. Quella creatura diventa stabile. Questo incantesimo non \nha effetto sui costrutti o sui non morti.",
+      "collapsed": true
+    },
+    {
+      "id": 16,
+      "title": "Scudo della Fede (PREPARATO) (Shield of Faith)",
+      "notes": "Abiurazione di 1° livello\nTempo di Lancio: 1 azione bonus\nGittata: 18 metri\nComponenti: V, S, M (una piccola pergamena su cui sia stato scritto un frammento di un testo sacro)\nDurata: Concentrazione, fino a 10 minuti\n\nUn campo di energia scintillante si materializza attorno a una creatura scelta dall'incantatore entro \ngittata, conferendole un bonus di +2 alla CA per la durata dell'incantesimo.",
+      "collapsed": true
+    },
+    {
+      "id": 15,
+      "title": "Santuario (PREPARATO) (Sanctuary)",
+      "notes": "Abiurazione di 1° livello\nTempo di Lancio: 1 azione bonus\nGittata: 9 metri\nComponenti: V, S, M (uno specchietto d'argento)\nDurata: 1 minuto\n\nL'incantatore protegge una creatura situata entro gittata dagli attacchi. Finché l'incantesimo non termina, \nogni creatura che bersaglia la creatura protetta con un attacco o un incantesimo che infligge danni deve \nprima effettuare un tiro salvezza su Saggezza. Se lo fallisce, deve scegliere un nuovo bersaglio o perdere\n l'attacco. Questo incantesimo non protegge la creatura bersaglio dagli effetti ad area come l'esplosione di una palla di fuoco.\nSe la creatura protetta eﬀettua un attacco, lancia un incantesimo che inﬂuenza una creatura nemica o\n inﬂigge danno a un’altra creatura, questo incantesimo termina.",
+      "collapsed": true
+    },
+    {
+      "id": 14,
+      "title": "Parola Guaritrice (Healing Word)",
+      "notes": "Invocazione di 1° livello\nTempo di Lancio: 1 azione bonus\nGittata: 18 metri\nComponenti: V\nDurata: Istantanea\n\nUna creatura scelta dall'incantatore entro gittata e che egli sia in grado di vedere recupera un ammontare\n di punti ferita pari a 1d4 + il modificatore di caratteristica da incantatore. Questo incantesimo non ha effetto sui costrutti o sui non morti.\nAi Livelli Superiori. Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo \ndi 2° livello o superiore, l'ammontare di guarigione aumenta di 1d4 punti ferita per ogni slot di livello superiore al 1°.",
+      "collapsed": true
+    },
+    {
+      "id": 11,
+      "title": "Benedizione (SEMPRE PREPARATO, è DEL DOMINIO) (Bless)",
+      "notes": "Ammaliamento di 1° livello\nTempo di Lancio: 1 azione\nGittata: 9 metri\nComponenti: V, S, M (uno spruzzo di acqua santa)\nDurata: Concentrazione, fino a 1 minuto\n\nL'incantatore benedice fino a tre creature a sua scelta entro gittata. Ogni volta che un bersaglio effettua \nun tiro per colpire o un tiro salvezza prima che l'incantesimo termini può tirare un d4 e aggiungere il numero\nottenuto al tiro per colpire o al tiro salvezza. Ai Livelli Superiori. Quando l'incantatore lancia questo\nincantesimo usando uno slot incantesimo di 2° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot superiore al 1°.\n",
+      "collapsed": true
+    },
+    {
+      "id": 12,
+      "title": "Cura Ferite (SEMPRE PREPARATO, è DEL DOMINIO) (Cure Wounds)",
+      "notes": "Invocazione di 1° livello\nTempo di Lancio: 1 azione\nGittata: Contatto\nComponenti: V, S\nDurata: Istantanea\n\nUna creatura toccata dall'incantatore recupera un numero di punti ferita pari a 1d8 + il modificatore \ndi caratteristica da incantatore. Questo incantesimo non ha effetto sui costrutti o sui non morti.\nAi Livelli Superiori. Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo di \n2° livello o superiore, la guarigione aumenta di 1d8 per ogni slot di livello superiore al 1°.",
+      "collapsed": true
+    },
+    {
+      "id": 13,
+      "title": "Anatema (Bane)",
+      "notes": "Ammaliamento di 1° livello\nTempo di Lancio: 1 azione\nGittata: 9 metri\nComponenti: V, S, M (una goccia di sangue)\nDurata: Concentrazione, fino a 1 minuto\n\nL'incantatore sceglie fino a tre creature entro gittata e che egli sia in grado di vedere, che dovranno \neffettuare un tiro salvezza su Carisma. Se una creatura fallisce il suo tiro salvezza, ogni volta che \neffettua un tiro per colpire o un tiro salvezza prima che l'incantesimo termini deve tirare un d4 e \nsottrarre il numero ottenuto dal tiro per colpire o dal tiro salvezza.\nAi Livelli Superiori. Quando l'incantatore lancia questo incantesimo usando uno slot incantesimo \ndi 2° livello o superiore, può bersagliare una creatura aggiuntiva per ogni slot di livello superiore al 1°.",
+      "collapsed": true
+    },
+    {
+      "id": 10,
+      "title": "Resistenza (Resistance)",
+      "notes": "Trucchetto di Abiurazione\nTempo di Lancio: 1 azione\nGittata: Contatto\nComponenti: V, S, M (un mantello in miniatura)\nDurata: Concentrazione, fino a 1 minuto\n\nL'incantatore tocca una creatura consenziente. Per una volta prima che l'incantesimo termini, il bersaglio \npuò tirare un d4 e aggiungere il risultato ottenuto ad un tiro salvezza a sua scelta. Può tirare il dado prima \no dopo avere effettuato il tiro salvezza. Dopodiché l'incantesimo termina.",
+      "collapsed": true
+    },
+    {
+      "id": 9,
+      "title": "Guida.   (PREPARATO) (Guidance)",
+      "notes": "Trucchetto di Divinazione\nTempo di lancio: 1 azione\nGittata: Contatto\nComponenti: V, S\nDurata: Concentrazione, fino a 1 minuto\n\nL'incantatore tocca una creatura consenziente. Una volta prima che l'incantesimo termini il bersaglio può tirare un d4 \ne aggiungere il risultato a una prova di caratteristica a sua scelta. Può tirare il dado prima o dopo avere effettuato la \nprova di caratteristica. Dopodiché l'incantesimo termina.",
+      "collapsed": true
+    }
+  ],
+  "stats": [
+    {
+      "id": 0,
+      "nome": "Livello",
+      "espressione": "1",
+      "risultato": "1"
+    },
+    {
+      "id": 1,
+      "nome": "bonus_competenza",
+      "espressione": "2",
+      "risultato": "2"
+    },
+    {
+      "id": 71,
+      "nome": "armatura",
+      "espressione": "3",
+      "risultato": "3"
+    },
+    {
+      "id": 64,
+      "nome": "CA",
+      "espressione": "10+armatura+mod_Destrezza",
+      "risultato": "13"
+    },
+    {
+      "id": 65,
+      "nome": "PF_max",
+      "espressione": "8+mod_Costituzione",
+      "risultato": "10"
+    },
+    {
+      "id": 67,
+      "nome": "PF_temp",
+      "espressione": "0",
+      "risultato": "0"
+    },
+    {
+      "id": 66,
+      "nome": "PF_attuali",
+      "espressione": "PF_max-0",
+      "risultato": "10"
+    },
+    {
+      "id": 68,
+      "nome": "CD",
+      "espressione": "8 + mod_Carisma + bonus_competenza",
+      "risultato": "10"
+    },
+    {
+      "id": 24,
+      "nome": "Forza",
+      "espressione": "8",
+      "risultato": "8"
+    },
+    {
+      "id": 23,
+      "nome": "mod_Forza",
+      "espressione": "Math.floor((Forza - 10) / 2)",
+      "risultato": "-1"
+    },
+    {
+      "id": 22,
+      "nome": "Destrezza",
+      "espressione": "10",
+      "risultato": "10"
+    },
+    {
+      "id": 21,
+      "nome": "mod_Destrezza",
+      "espressione": "Math.floor((Destrezza - 10) / 2)",
+      "risultato": "0"
+    },
+    {
+      "id": 20,
+      "nome": "Costituzione",
+      "espressione": "14",
+      "risultato": "14"
+    },
+    {
+      "id": 19,
+      "nome": "mod_Costituzione",
+      "espressione": "Math.floor((Costituzione - 10) / 2)",
+      "risultato": "2"
+    },
+    {
+      "id": 18,
+      "nome": "Intelligenza",
+      "espressione": "8",
+      "risultato": "8"
+    },
+    {
+      "id": 17,
+      "nome": "mod_Intelligenza",
+      "espressione": "Math.floor((Intelligenza - 10) / 2)",
+      "risultato": "-1"
+    },
+    {
+      "id": 16,
+      "nome": "Saggezza",
+      "espressione": "16",
+      "risultato": "16"
+    },
+    {
+      "id": 15,
+      "nome": "mod_Saggezza",
+      "espressione": "Math.floor((Saggezza - 10) / 2)",
+      "risultato": "3"
+    },
+    {
+      "id": 14,
+      "nome": "Carisma",
+      "espressione": "10",
+      "risultato": "10"
+    },
+    {
+      "id": 13,
+      "nome": "mod_Carisma",
+      "espressione": "Math.floor((Carisma - 10) / 2)",
+      "risultato": "0"
+    }
+  ],
+  "actions": [
+    {
+      "id": 1,
+      "nome": "utils",
+      "gittata": "",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "danno_subito",
+          "espressione": "0",
+          "risultato": "0"
+        }
+      ],
+      "diceList": [
+        {
+          "id": 1,
+          "name": "iniziativa",
+          "text": "1d20+mod_Destrezza",
+          "result": "\n->1d20+mod_Destrezza\n->1d20+0\nTiri dadi:\n - 1d20: [6]\n\nTotale: 6"
+        },
+        {
+          "id": 2,
+          "name": "concentrazione_se_true_la_tengo)",
+          "text": "1d20 + mod_Costituzione > Math.max(10, Math.floor(danno_subito/2))",
+          "result": "\n->1d20 + mod_Costituzione > Math.max(10, Math.floor(danno_subito/2))\n->1d20 + 2 > Math.max(10, Math.floor(0/2))\nTiri dadi:\n - 1d20: [5]\n\nTotale: false"
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "id": 0,
+      "nome": "Tiri salvezza",
+      "gittata": "",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "",
+          "espressione": "",
+          "risultato": ""
+        }
+      ],
+      "diceList": [
+        {
+          "id": 0,
+          "name": "TS_Forza",
+          "text": "1d20 + mod_Forza",
+          "result": "\n->1d20 + mod_Forza\n->1d20 + -1\nTiri dadi:\n - 1d20: [13]\n\nTotale: 12"
+        },
+        {
+          "id": 1,
+          "name": "TS_Destrezza",
+          "text": "1d20 + mod_Destrezza",
+          "result": "\n->1d20 + mod_Destrezza\n->1d20 + 0\nTiri dadi:\n - 1d20: [19]\n\nTotale: 19"
+        },
+        {
+          "id": 2,
+          "name": "TS_Costituzione",
+          "text": "1d20 + mod_Costituzione",
+          "result": "\n->1d20 + mod_Costituzione\n->1d20 + 2\nTiri dadi:\n - 1d20: [3]\n\nTotale: 5"
+        },
+        {
+          "id": 3,
+          "name": "TS_Intelligenza",
+          "text": "1d20 + mod_Intelligenza",
+          "result": "\n->1d20 + mod_Intelligenza\n->1d20 + -1\nTiri dadi:\n - 1d20: [15]\n\nTotale: 14"
+        },
+        {
+          "id": 4,
+          "name": "TS_Saggezza",
+          "text": "1d20 + mod_Saggezza +bonus_competenza",
+          "result": "\n->1d20 + mod_Saggezza +bonus_competenza\n->1d20 + 3 +2\nTiri dadi:\n - 1d20: [4]\n\nTotale: 9"
+        },
+        {
+          "id": 5,
+          "name": "TS_Carisma",
+          "text": "1d20 + mod_Carisma + bonus_competenza",
+          "result": "\n->1d20 + mod_Carisma + bonus_competenza\n->1d20 + 0 + 2\nTiri dadi:\n - 1d20: [13]\n\nTotale: 15"
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "id": 2,
+      "nome": "Tiri Abilità",
+      "gittata": "",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "competenza_Acrobazia",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 1,
+          "nome": "competenza_Arcano",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 2,
+          "nome": "competenza_Atletica",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 3,
+          "nome": "competenza_Furtivita",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 4,
+          "nome": "competenza_Ingannno",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 5,
+          "nome": "competenza_Intuizione",
+          "espressione": "1",
+          "risultato": "1"
+        },
+        {
+          "id": 6,
+          "nome": "competenza_Investigazione",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 7,
+          "nome": "competenza_Medicina",
+          "espressione": "1",
+          "risultato": "1"
+        },
+        {
+          "id": 8,
+          "nome": "competenza_Natura",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 9,
+          "nome": "competenza_Percezione",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 10,
+          "nome": "competenza_Persuasione",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 11,
+          "nome": "competenza_Religione",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 12,
+          "nome": "competenza_Sopravvivenza",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 13,
+          "nome": "competenza_Addestrare_Animali",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 14,
+          "nome": "competenza_Indagare",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 15,
+          "nome": "competenza_Intimidire",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 16,
+          "nome": "competenza_Intrattenere",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 17,
+          "nome": "competenza_Rapidità_di_mano",
+          "espressione": "0",
+          "risultato": "0"
+        },
+        {
+          "id": 18,
+          "nome": "competenza_Storia",
+          "espressione": "0",
+          "risultato": "0"
+        }
+      ],
+      "diceList": [
+        {
+          "id": 0,
+          "name": "TA_Acrobazia",
+          "text": "1d20 + mod_Destrezza + (bonus_competenza * competenza_Acrobazia)",
+          "result": "\n->1d20 + mod_Destrezza + (bonus_competenza * competenza_Acrobazia)\n->1d20 + 0 + (2 * 0)\nTiri dadi:\n - 1d20: [14]\n\nTotale: 14"
+        },
+        {
+          "id": 1,
+          "name": "TA_Arcano",
+          "text": "1d20 + mod_Intelligenza + (bonus_competenza * competenza_Arcano)",
+          "result": ""
+        },
+        {
+          "id": 2,
+          "name": "TA_Atletica",
+          "text": "1d20 + mod_Forza + (bonus_competenza * competenza_Atletica)",
+          "result": ""
+        },
+        {
+          "id": 3,
+          "name": "TA_Furtività",
+          "text": "1d20 + mod_Destrezza + (bonus_competenza * competenza_Furtivita)",
+          "result": ""
+        },
+        {
+          "id": 4,
+          "name": "TA_Inganno",
+          "text": "1d20 + mod_Carisma + (bonus_competenza * competenza_Ingannno)",
+          "result": ""
+        },
+        {
+          "id": 5,
+          "name": "TA_Intuizione",
+          "text": "1d20 + mod_Saggezza + (bonus_competenza * competenza_Intuizione)",
+          "result": ""
+        },
+        {
+          "id": 6,
+          "name": "TA_Investigazione",
+          "text": "1d20 + mod_Intelligenza + (bonus_competenza * competenza_Investigazione)",
+          "result": ""
+        },
+        {
+          "id": 7,
+          "name": "TA_Medicina",
+          "text": "1d20 + mod_Saggezza + (bonus_competenza * competenza_Medicina)",
+          "result": ""
+        },
+        {
+          "id": 8,
+          "name": "TA_Natura",
+          "text": "1d20 + mod_Intelligenza + (bonus_competenza * competenza_Natura)",
+          "result": ""
+        },
+        {
+          "id": 9,
+          "name": "TA_Percezione",
+          "text": "1d20 + mod_Saggezza + (bonus_competenza * competenza_Percezione)",
+          "result": ""
+        },
+        {
+          "id": 10,
+          "name": "TA_Persuasione",
+          "text": "1d20 + mod_Carisma + (bonus_competenza * competenza_Persuasione)",
+          "result": ""
+        },
+        {
+          "id": 11,
+          "name": "TA_Religione",
+          "text": "1d20 + mod_Intelligenza + (bonus_competenza * competenza_Religione)",
+          "result": ""
+        },
+        {
+          "id": 12,
+          "name": "TA_Sopravvivenza",
+          "text": "1d20 + mod_Saggezza + (bonus_competenza * competenza_Sopravvivenza)",
+          "result": ""
+        },
+        {
+          "id": 13,
+          "name": "TA_Addestrare_Animali",
+          "text": "1d20 + mod_Saggezza + (bonus_competenza * competenza_Addestrare_Animali)",
+          "result": ""
+        },
+        {
+          "id": 14,
+          "name": "TA_Indagare",
+          "text": "1d20 + mod_Intelligenza + (bonus_competenza * competenza_Indagare)",
+          "result": ""
+        },
+        {
+          "id": 15,
+          "name": "TA_Intimidire",
+          "text": "1d20 + mod_Carisma + (bonus_competenza * competenza_Intimidire)",
+          "result": ""
+        },
+        {
+          "id": 16,
+          "name": "TA_Intrattenere",
+          "text": "1d20 + mod_Carisma + (bonus_competenza * competenza_Intrattenere)",
+          "result": ""
+        },
+        {
+          "id": 17,
+          "name": "TA_Rapidità_di_mano",
+          "text": "1d20 + mod_Destrezza + (bonus_competenza * competenza_Rapidità_di_mano)",
+          "result": ""
+        },
+        {
+          "id": 18,
+          "name": "TA_Storia",
+          "text": "1d20 + mod_Intelligenza + (bonus_competenza * competenza_Storia)",
+          "result": ""
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "id": 3,
+      "nome": "Parola Guaritrice",
+      "gittata": "18 metri",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "slot_incantesimo",
+          "espressione": "1",
+          "risultato": "1"
+        }
+      ],
+      "diceList": [
+        {
+          "id": 0,
+          "name": "cure_e_discepolo_della_vita",
+          "text": "1d4+mod_Saggezza+1d4*Math.max(0, slot_incantesimo-1)+2+slot_incantesimo",
+          "result": "\n->1d4+mod_Saggezza+1d4*Math.max(0, slot_incantesimo-1)+2+slot_incantesimo\n->1d4+3+1d4*Math.max(0, 1-1)+2+1\n->1d4+3+0+2+1\nTiri dadi:\n - 1d4: [1]\n\nTotale: 7"
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "id": 4,
+      "nome": "Cura Ferite",
+      "gittata": "contatto",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "slot_incantesimo",
+          "espressione": "1",
+          "risultato": "1"
+        }
+      ],
+      "diceList": [
+        {
+          "id": 0,
+          "name": "cure_e_discepolo_della_vita",
+          "text": "1d8+mod_Saggezza+1d8*Math.max(0, slot_incantesimo-1) + 2+slot_incantesimo",
+          "result": "\n->1d8+mod_Saggezza+1d8*Math.max(0, slot_incantesimo-1) + 2+slot_incantesimo\n->1d8+3+1d8*Math.max(0, 2-1) + 2+2\n->1d8+3+1d8 + 2+2\nTiri dadi:\n - 1d8: [1]\n - 1d8: [4]\n\nTotale: 12"
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "id": 5,
+      "nome": "pugnale",
+      "gittata": "contatto, lanciare 3m",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "",
+          "espressione": "",
+          "risultato": ""
+        }
+      ],
+      "diceList": [
+        {
+          "id": 0,
+          "name": "per_colpire",
+          "text": "1d20+bonus_competenza+mod_Destrezza",
+          "result": "\n->1d20+bonus_competenza+mod_Destrezza\n->1d20+2+0\nTiri dadi:\n - 1d20: [12]\n\nTotale: 14"
+        },
+        {
+          "id": 1,
+          "name": "danno",
+          "text": "1d4+mod_Destrezza",
+          "result": "\n->1d4+mod_Destrezza\n->1d4+0\nTiri dadi:\n - 1d4: [4]\n\nTotale: 4"
+        }
+      ],
+      "collapsed": true
+    },
+    {
+      "id": 6,
+      "nome": "Stocco",
+      "gittata": "contatto",
+      "descrizione": "",
+      "localModsItems": [
+        {
+          "id": 0,
+          "nome": "",
+          "espressione": "",
+          "risultato": ""
+        }
+      ],
+      "diceList": [
+        {
+          "id": 0,
+          "name": "per_colpire",
+          "text": "1d20+bonus_competenza+mod_Destrezza",
+          "result": "\n->1d20+bonus_competenza+mod_Destrezza\n->1d20+2+0\nTiri dadi:\n - 1d20: [15]\n\nTotale: 17"
+        },
+        {
+          "id": 1,
+          "name": "danno",
+          "text": "1d8+mod_Destrezza",
+          "result": "\n->1d8+mod_Destrezza\n->1d8+0\nTiri dadi:\n - 1d8: [3]\n\nTotale: 3"
+        }
+      ],
+      "collapsed": true
+    }
+  ]
+}
