@@ -1,0 +1,145 @@
+ .combat-action-list {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   width: 100%;
+ }
+ 
+ .combat-action-list .list-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-bottom: 6px;
+   border-bottom: 1px solid #eee;
+ }
+ 
+ .combat-action-list .list-title {
+   margin: 0;
+   font-size: 1.15rem;
+   font-weight: 700;
+   color: #2c3e50;
+   letter-spacing: 0.2px;
+   position: relative;
+   padding-left: 12px;
+ }
+ 
+ .combat-action-list .list-title::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 6px;
+   height: 1.2em;
+   border-radius: 3px;
+   background: linear-gradient(180deg, #2ecc71, #27ae60);
+ }
+ 
+ .combat-action-list .list-body {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+ }
+ 
+ .combat-action-list .add-btn {
+   margin-top: 6px;
+   width: 32px;
+   height: 32px;
+   border: 1px solid #b8e0c2;
+   border-radius: 6px;
+   background: #e9f7ef;
+   color: #1e8449;
+   font-size: 20px;
+   cursor: pointer;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   line-height: 1;
+ }
+ 
+ .combat-action-list .add-btn:hover {
+   background: #d4efdf;
+   border-color: #a9dfbf;
+ }
+ 
+ .combat-action-list .list-item {
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 8px;
+   background: #fff;
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   position: relative;
+   padding-right: 40px;
+   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+   cursor: grab;
+ }
+ 
+ .combat-action-list .list-item:active {
+   cursor: grabbing;
+ }
+ 
+ .combat-action-list .collapse-btn {
+   position: absolute;
+   top: 8px;
+   right: 40px;
+   width: 28px;
+   height: 28px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid #e0e0e0;
+   border-radius: 6px;
+   background: #fff;
+   color: #34495e;
+   font-size: 16px;
+   cursor: pointer;
+ }
+ 
+ .combat-action-list .collapse-btn:hover {
+   background: #f6f8fa;
+   border-color: #d5d8dc;
+ }
+ 
+ .combat-action-list .toggle-all-btn {
+   border: 1px solid #e0e0e0;
+   border-radius: 6px;
+   background: #fff;
+   color: #34495e;
+   padding: 6px 10px;
+   cursor: pointer;
+ }
+ 
+ .combat-action-list .toggle-all-btn:hover {
+   background: #f6f8fa;
+   border-color: #d5d8dc;
+ }
+ 
+ .combat-action-list .remove-btn {
+   position: absolute;
+   top: 8px;
+   right: 8px;
+   width: 28px;
+   height: 28px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid #e0e0e0;
+   border-radius: 6px;
+   background: #fff;
+   color: #c0392b;
+   font-size: 16px;
+   cursor: pointer;
+ }
+ 
+ .combat-action-list .remove-btn:hover {
+   background: #fff5f5;
+   border-color: #e6b8b8;
+ }
+ 
+ .combat-action-list .list-empty {
+   color: #666;
+   font-size: 0.95rem;
+ }
+ 

@@ -1,0 +1,41 @@
+ .simple-stat {
+   display: flex;
+   align-items: stretch;
+   flex-wrap: nowrap;
+   gap: 12px;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 8px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   background: #fff;
+ }
+ 
+ .stat-inputs {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   flex: 1 1 auto;
+ }
+ 
+ .stat-input {
+   flex: 1 1 0;
+   min-width: 140px;
+   padding: 10px 12px;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   font: inherit;
+   box-sizing: border-box;
+ }
+ 
+ .stat-result {
+   flex: 0 0 140px;
+   text-align: center;
+   padding: 10px 12px;
+   border: 1px dashed #bbb;
+   border-radius: 6px;
+   color: #333;
+   background: #fafafa;
+   font-weight: 600;
+ }
+ 

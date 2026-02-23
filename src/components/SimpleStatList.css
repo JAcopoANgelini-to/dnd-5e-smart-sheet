@@ -1,0 +1,119 @@
+ .simple-stat-list {
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   width: 100%;
+ }
+ 
+ .list-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding-bottom: 6px;
+   border-bottom: 1px solid #eee;
+ }
+ 
+ .list-title {
+   margin: 0;
+   font-size: 1.1rem;
+   color: #333;
+ }
+ 
+ .list-body {
+   display: grid;
+   grid-template-columns: repeat(4, minmax(0, 1fr));
+   gap: 12px;
+ }
+ 
+ .list-item {
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   padding: 8px;
+   background: #fff;
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+   position: relative;
+   padding-right: 40px;
+   cursor: grab;
+ }
+ 
+ .list-item:active {
+   cursor: grabbing;
+ }
+ 
+ .add-btn {
+   margin-top: 6px;
+   width: 32px;
+   height: 32px;
+   border: 1px solid #b8e0c2;
+   border-radius: 6px;
+   background: #e9f7ef;
+   color: #1e8449;
+   font-size: 20px;
+   cursor: pointer;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   line-height: 1;
+ }
+ 
+ .add-btn:hover {
+   background: #d4efdf;
+   border-color: #a9dfbf;
+ }
+ 
+ .list-title {
+   font-size: 1.15rem;
+   font-weight: 700;
+   color: #2c3e50;
+   letter-spacing: 0.2px;
+   position: relative;
+   padding-left: 12px;
+ }
+ 
+ .list-title::before {
+   content: '';
+   position: absolute;
+   left: 0;
+   top: 50%;
+   transform: translateY(-50%);
+   width: 6px;
+   height: 1.2em;
+   border-radius: 3px;
+   background: linear-gradient(180deg, #2ecc71, #27ae60);
+ }
+ 
+ .item-actions {
+   display: flex;
+   justify-content: flex-end;
+ }
+ 
+ .remove-btn {
+   position: absolute;
+   top: 8px;
+   right: 8px;
+   width: 28px;
+   height: 28px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   border: 1px solid #e0e0e0;
+   border-radius: 6px;
+   background: #fff;
+   color: #c0392b;
+   font-size: 16px;
+   cursor: pointer;
+ }
+ 
+ .remove-btn:hover {
+   background: #fff5f5;
+   border-color: #e6b8b8;
+ }
+ 
+ .list-empty {
+   color: #666;
+   font-size: 0.95rem;
+ }
+ 
