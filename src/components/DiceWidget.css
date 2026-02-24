@@ -1,0 +1,61 @@
+ .dice-widget {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   flex-wrap: wrap;
+   padding: 8px;
+   border: 1px solid #ddd;
+   border-radius: 8px;
+   background: #fff;
+ }
+ 
+ .dice-inputs {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+   flex: 1 1 auto;
+   min-width: 260px;
+ }
+ 
+ .dice-name {
+   flex: 1 1 auto;
+   min-width: 140px;
+   padding: 10px 12px;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   font: inherit;
+   box-sizing: border-box;
+ }
+ 
+ .dice-input {
+   flex: 1 1 auto;
+   min-width: 140px;
+   width: 100%;
+   padding: 10px 12px;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   font: inherit;
+   box-sizing: border-box;
+ }
+ 
+ .dice-button {
+   padding: 10px 14px;
+   border: 1px solid #ccc;
+   border-radius: 6px;
+   background: #fff;
+   cursor: pointer;
+   font-size: 18px;
+ }
+ 
+ .dice-result {
+   min-width: 200px;
+   flex: 1 1 200px;
+   padding: 10px 12px;
+   border: 1px dashed #bbb;
+   border-radius: 6px;
+   color: #333;
+   background: #fafafa;
+   box-sizing: border-box;
+   white-space: pre-wrap;
+ }
+ 

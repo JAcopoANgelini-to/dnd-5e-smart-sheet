@@ -99,7 +99,7 @@ export function valutaConEspressione(modificatori, espressione) {
     stringaRisultato += `\n${exprIntermedia}\n`;
 
     if (gruppiDadi.length) {
-        stringaRisultato += `\nTiri dadi:\n`;
+        stringaRisultato += `Tiri dadi:\n`;
         gruppiDadi.forEach(({ tipoDado, count, risultati }, index) => {
             const somma = risultati.reduce((a, b) => a + b, 0);
             if (risultati.length > 1) {
